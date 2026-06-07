@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+}
+
+html, body {
+  background: #f5f1e8;
+  color: #0f1115;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: #c44b2c; color: #f5f1e8; }
+
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: .35;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center bg-ink text-cream px-5 py-2.5 rounded-md font-medium text-sm tracking-tight hover:bg-clay transition-colors;
+}
+.btn-ghost {
+  @apply inline-flex items-center justify-center text-ink px-4 py-2 rounded-md font-medium text-sm tracking-tight hover:bg-ink/5 transition-colors;
+}
+.input {
+  @apply w-full bg-white border border-ink/15 rounded-md px-3 py-2.5 text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-ink focus:ring-2 focus:ring-ink/10 transition;
+}
+.label {
+  @apply block text-xs font-medium uppercase tracking-[0.14em] text-ink/60 mb-1.5;
+}
+.card {
+  @apply bg-white border border-ink/10 rounded-lg;
+}
